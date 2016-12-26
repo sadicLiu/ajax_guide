@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // js预解析阶段将变量定义和函数定义都提到最前面，所以会出现下面1,2两种情况
+
+    function testCase1() {
+        // 调用在前，定义在后
+        test();
+
+        function test() {
+            alert("testCase1 invoked!");
+        }
+    }
+
+    function testCase2() {
+        // 调用在前，定义在后，但是以变量的方式定义
+        test();
+
+        // 无法执行，提示test is not a function
+        var test = function () {
+            alert("testCase2 invoked!");
+        }
+    }
+
+    function testCase3() {
+        // 函数的参数可以是一个函数
+        function parentFunc(callback) {
+            callback();
+            alert("parentFunc invoked!")
+        }
+
+        function callback() {
+            alert("callback function invoked!");
+        }
+
+        parentFunc(callback);
+    }
+
+    function testCase4() {
+        var person = {
+            name: "zhangsan",
+            age: 20,
+            sayHi: function () {
+                alert("hi");
+            }
+        };
+
+        alert(person.name);
+        alert(person.sayHi);
+        person.sayHi();
+    }
+
+    (function () {
+//        testCase1();
+//        testCase2();
+//        testCase3();
+        testCase4();
+    })();
+</script>
+</html>
