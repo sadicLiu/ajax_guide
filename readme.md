@@ -1,6 +1,6 @@
 ### ajax
-
-#### 1.ajax.jsp + AjaxServlet                           
+    ·这个项目需要部署到Tomcat上运行
+#### 1.ajax.jsp + AjaxServlet                     
        原生ajax使用的一个demo
 
 #### 2.jquery_ajax.jsp + JqueryAjaxServlet
