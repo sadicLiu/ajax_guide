@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>cross domain</title>
+</head>
+<body>
+<div id="result"></div>
+
+<script src="jsonp.js"></script>
+<script>
+    jsonp('http://api.douban.com//v2/movie/in_theaters', {
+        count: 10,
+        start: 10
+    }, function (response) {
+        document.getElementById('result').innerHTML = JSON.stringify(response);
+    });
+</script>
+</body>
+</html>

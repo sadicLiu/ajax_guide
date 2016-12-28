@@ -1,4 +1,4 @@
-### ajax
+## ajax
 
 #### 1.ajax.jsp + AjaxServlet                           
        原生ajax使用的一个demo
@@ -16,7 +16,14 @@
 #### 5.Function问题
 
 
-### ajax跨域问题
+## ajax跨域问题
+
+* notes：
+    * description: ajax不能通过get、post方法请求不同域名下的资源，本质原因是XMLHTTPRequest对象不支持
+    * solution：比较常用的方式是通过jsonp解决，所谓jsonp，是指在ajax请求的url中指定一个回调函数，然后将这个url以动态创建节点的方式添加到script标签的src属性上，并将这个script标签动态添加到html中，这样，由于script标签可以跨域，那么就可以将需要的资源返回。
+
+#### cross_domain
+     自定义jsonp函数来实现跨域
 
 #### 1.weather.html
        原生方式实现跨域
